@@ -7,7 +7,6 @@ edition = "2021"
 
 [dependencies]
 netcdf = "0.8.1"
-json = "0.12.4"
 mongodb = "2.1"
 bson = { version = "2", features = ["chrono-0_4"] }
 tokio = "1"
