@@ -114,7 +114,8 @@ fn main() -> Result<(),netcdf::error::Error> {
     let year = args[1].parse::<u64>().unwrap();
 
     let timeseries = vec![
-        vec!["1993-01-10T00:00:00.000Z","1993-01-17T00:00:00.000Z","1993-01-24T00:00:00.000Z","1993-01-31T00:00:00.000Z","1993-02-07T00:00:00.000Z","1993-02-14T00:00:00.000Z","1993-02-21T00:00:00.000Z","1993-02-28T00:00:00.000Z","1993-03-07T00:00:00.000Z","1993-03-14T00:00:00.000Z","1993-03-21T00:00:00.000Z","1993-03-28T00:00:00.000Z","1993-04-04T00:00:00.000Z","1993-04-11T00:00:00.000Z","1993-04-18T00:00:00.000Z","1993-04-25T00:00:00.000Z","1993-05-02T00:00:00.000Z","1993-05-09T00:00:00.000Z","1993-05-16T00:00:00.000Z","1993-05-23T00:00:00.000Z","1993-05-30T00:00:00.000Z","1993-06-06T00:00:00.000Z","1993-06-13T00:00:00.000Z","1993-06-20T00:00:00.000Z","1993-06-27T00:00:00.000Z","1993-07-04T00:00:00.000Z","1993-07-11T00:00:00.000Z","1993-07-18T00:00:00.000Z","1993-07-25T00:00:00.000Z","1993-08-01T00:00:00.000Z","1993-08-08T00:00:00.000Z","1993-08-15T00:00:00.000Z","1993-08-22T00:00:00.000Z","1993-08-29T00:00:00.000Z","1993-09-05T00:00:00.000Z","1993-09-12T00:00:00.000Z","1993-09-19T00:00:00.000Z","1993-09-26T00:00:00.000Z","1993-10-03T00:00:00.000Z","1993-10-10T00:00:00.000Z","1993-10-17T00:00:00.000Z","1993-10-24T00:00:00.000Z","1993-10-31T00:00:00.000Z","1993-11-07T00:00:00.000Z","1993-11-14T00:00:00.000Z","1993-11-21T00:00:00.000Z","1993-11-28T00:00:00.000Z","1993-12-05T00:00:00.000Z","1993-12-12T00:00:00.000Z","1993-12-19T00:00:00.000Z","1993-12-26T00:00:00.000Z"],
+        vec!["1993-01-10T00:00:00.000Z","1993-01-17T00:00:00.000Z","1993-01-24T00:00:00.000Z","1993-01-31T00:00:00.000Z"],
+        //vec!["1993-01-10T00:00:00.000Z","1993-01-17T00:00:00.000Z","1993-01-24T00:00:00.000Z","1993-01-31T00:00:00.000Z","1993-02-07T00:00:00.000Z","1993-02-14T00:00:00.000Z","1993-02-21T00:00:00.000Z","1993-02-28T00:00:00.000Z","1993-03-07T00:00:00.000Z","1993-03-14T00:00:00.000Z","1993-03-21T00:00:00.000Z","1993-03-28T00:00:00.000Z","1993-04-04T00:00:00.000Z","1993-04-11T00:00:00.000Z","1993-04-18T00:00:00.000Z","1993-04-25T00:00:00.000Z","1993-05-02T00:00:00.000Z","1993-05-09T00:00:00.000Z","1993-05-16T00:00:00.000Z","1993-05-23T00:00:00.000Z","1993-05-30T00:00:00.000Z","1993-06-06T00:00:00.000Z","1993-06-13T00:00:00.000Z","1993-06-20T00:00:00.000Z","1993-06-27T00:00:00.000Z","1993-07-04T00:00:00.000Z","1993-07-11T00:00:00.000Z","1993-07-18T00:00:00.000Z","1993-07-25T00:00:00.000Z","1993-08-01T00:00:00.000Z","1993-08-08T00:00:00.000Z","1993-08-15T00:00:00.000Z","1993-08-22T00:00:00.000Z","1993-08-29T00:00:00.000Z","1993-09-05T00:00:00.000Z","1993-09-12T00:00:00.000Z","1993-09-19T00:00:00.000Z","1993-09-26T00:00:00.000Z","1993-10-03T00:00:00.000Z","1993-10-10T00:00:00.000Z","1993-10-17T00:00:00.000Z","1993-10-24T00:00:00.000Z","1993-10-31T00:00:00.000Z","1993-11-07T00:00:00.000Z","1993-11-14T00:00:00.000Z","1993-11-21T00:00:00.000Z","1993-11-28T00:00:00.000Z","1993-12-05T00:00:00.000Z","1993-12-12T00:00:00.000Z","1993-12-19T00:00:00.000Z","1993-12-26T00:00:00.000Z"],
         vec!["1994-01-02T00:00:00.000Z","1994-01-09T00:00:00.000Z","1994-01-16T00:00:00.000Z","1994-01-23T00:00:00.000Z","1994-01-30T00:00:00.000Z","1994-02-06T00:00:00.000Z","1994-02-13T00:00:00.000Z","1994-02-20T00:00:00.000Z","1994-02-27T00:00:00.000Z","1994-03-06T00:00:00.000Z","1994-03-13T00:00:00.000Z","1994-03-20T00:00:00.000Z","1994-03-27T00:00:00.000Z","1994-04-03T00:00:00.000Z","1994-04-10T00:00:00.000Z","1994-04-17T00:00:00.000Z","1994-04-24T00:00:00.000Z","1994-05-01T00:00:00.000Z","1994-05-08T00:00:00.000Z","1994-05-15T00:00:00.000Z","1994-05-22T00:00:00.000Z","1994-05-29T00:00:00.000Z","1994-06-05T00:00:00.000Z","1994-06-12T00:00:00.000Z","1994-06-19T00:00:00.000Z","1994-06-26T00:00:00.000Z","1994-07-03T00:00:00.000Z","1994-07-10T00:00:00.000Z","1994-07-17T00:00:00.000Z","1994-07-24T00:00:00.000Z","1994-07-31T00:00:00.000Z","1994-08-07T00:00:00.000Z","1994-08-14T00:00:00.000Z","1994-08-21T00:00:00.000Z","1994-08-28T00:00:00.000Z","1994-09-04T00:00:00.000Z","1994-09-11T00:00:00.000Z","1994-09-18T00:00:00.000Z","1994-09-25T00:00:00.000Z","1994-10-02T00:00:00.000Z","1994-10-09T00:00:00.000Z","1994-10-16T00:00:00.000Z","1994-10-23T00:00:00.000Z","1994-10-30T00:00:00.000Z","1994-11-06T00:00:00.000Z","1994-11-13T00:00:00.000Z","1994-11-20T00:00:00.000Z","1994-11-27T00:00:00.000Z","1994-12-04T00:00:00.000Z","1994-12-11T00:00:00.000Z","1994-12-18T00:00:00.000Z","1994-12-25T00:00:00.000Z"],
         vec!["1995-01-01T00:00:00.000Z","1995-01-08T00:00:00.000Z","1995-01-15T00:00:00.000Z","1995-01-22T00:00:00.000Z","1995-01-29T00:00:00.000Z","1995-02-05T00:00:00.000Z","1995-02-12T00:00:00.000Z","1995-02-19T00:00:00.000Z","1995-02-26T00:00:00.000Z","1995-03-05T00:00:00.000Z","1995-03-12T00:00:00.000Z","1995-03-19T00:00:00.000Z","1995-03-26T00:00:00.000Z","1995-04-02T00:00:00.000Z","1995-04-09T00:00:00.000Z","1995-04-16T00:00:00.000Z","1995-04-23T00:00:00.000Z","1995-04-30T00:00:00.000Z","1995-05-07T00:00:00.000Z","1995-05-14T00:00:00.000Z","1995-05-21T00:00:00.000Z","1995-05-28T00:00:00.000Z","1995-06-04T00:00:00.000Z","1995-06-11T00:00:00.000Z","1995-06-18T00:00:00.000Z","1995-06-25T00:00:00.000Z","1995-07-02T00:00:00.000Z","1995-07-09T00:00:00.000Z","1995-07-16T00:00:00.000Z","1995-07-23T00:00:00.000Z","1995-07-30T00:00:00.000Z","1995-08-06T00:00:00.000Z","1995-08-13T00:00:00.000Z","1995-08-20T00:00:00.000Z","1995-08-27T00:00:00.000Z","1995-09-03T00:00:00.000Z","1995-09-10T00:00:00.000Z","1995-09-17T00:00:00.000Z","1995-09-24T00:00:00.000Z","1995-10-01T00:00:00.000Z","1995-10-08T00:00:00.000Z","1995-10-15T00:00:00.000Z","1995-10-22T00:00:00.000Z","1995-10-29T00:00:00.000Z","1995-11-05T00:00:00.000Z","1995-11-12T00:00:00.000Z","1995-11-19T00:00:00.000Z","1995-11-26T00:00:00.000Z","1995-12-03T00:00:00.000Z","1995-12-10T00:00:00.000Z","1995-12-17T00:00:00.000Z","1995-12-24T00:00:00.000Z","1995-12-31T00:00:00.000Z"],
         vec!["1996-01-07T00:00:00.000Z","1996-01-14T00:00:00.000Z","1996-01-21T00:00:00.000Z","1996-01-28T00:00:00.000Z","1996-02-04T00:00:00.000Z","1996-02-11T00:00:00.000Z","1996-02-18T00:00:00.000Z","1996-02-25T00:00:00.000Z","1996-03-03T00:00:00.000Z","1996-03-10T00:00:00.000Z","1996-03-17T00:00:00.000Z","1996-03-24T00:00:00.000Z","1996-03-31T00:00:00.000Z","1996-04-07T00:00:00.000Z","1996-04-14T00:00:00.000Z","1996-04-21T00:00:00.000Z","1996-04-28T00:00:00.000Z","1996-05-05T00:00:00.000Z","1996-05-12T00:00:00.000Z","1996-05-19T00:00:00.000Z","1996-05-26T00:00:00.000Z","1996-06-02T00:00:00.000Z","1996-06-09T00:00:00.000Z","1996-06-16T00:00:00.000Z","1996-06-23T00:00:00.000Z","1996-06-30T00:00:00.000Z","1996-07-07T00:00:00.000Z","1996-07-14T00:00:00.000Z","1996-07-21T00:00:00.000Z","1996-07-28T00:00:00.000Z","1996-08-04T00:00:00.000Z","1996-08-11T00:00:00.000Z","1996-08-18T00:00:00.000Z","1996-08-25T00:00:00.000Z","1996-09-01T00:00:00.000Z","1996-09-08T00:00:00.000Z","1996-09-15T00:00:00.000Z","1996-09-22T00:00:00.000Z","1996-09-29T00:00:00.000Z","1996-10-06T00:00:00.000Z","1996-10-13T00:00:00.000Z","1996-10-20T00:00:00.000Z","1996-10-27T00:00:00.000Z","1996-11-03T00:00:00.000Z","1996-11-10T00:00:00.000Z","1996-11-17T00:00:00.000Z","1996-11-24T00:00:00.000Z","1996-12-01T00:00:00.000Z","1996-12-08T00:00:00.000Z","1996-12-15T00:00:00.000Z","1996-12-22T00:00:00.000Z","1996-12-29T00:00:00.000Z"],
@@ -144,24 +145,54 @@ fn main() -> Result<(),netcdf::error::Error> {
         vec!["2020-01-05T00:00:00.000Z","2020-01-12T00:00:00.000Z","2020-01-19T00:00:00.000Z","2020-01-26T00:00:00.000Z","2020-02-02T00:00:00.000Z","2020-02-09T00:00:00.000Z","2020-02-16T00:00:00.000Z","2020-02-23T00:00:00.000Z","2020-03-01T00:00:00.000Z","2020-03-08T00:00:00.000Z","2020-03-15T00:00:00.000Z","2020-03-22T00:00:00.000Z","2020-03-29T00:00:00.000Z","2020-04-05T00:00:00.000Z","2020-04-12T00:00:00.000Z","2020-04-19T00:00:00.000Z","2020-04-26T00:00:00.000Z","2020-05-03T00:00:00.000Z","2020-05-10T00:00:00.000Z","2020-05-17T00:00:00.000Z","2020-05-24T00:00:00.000Z","2020-05-31T00:00:00.000Z","2020-06-07T00:00:00.000Z","2020-06-14T00:00:00.000Z","2020-06-21T00:00:00.000Z","2020-06-28T00:00:00.000Z","2020-07-05T00:00:00.000Z","2020-07-12T00:00:00.000Z","2020-07-19T00:00:00.000Z","2020-07-26T00:00:00.000Z","2020-08-02T00:00:00.000Z","2020-08-09T00:00:00.000Z","2020-08-16T00:00:00.000Z","2020-08-23T00:00:00.000Z","2020-08-30T00:00:00.000Z","2020-09-06T00:00:00.000Z","2020-09-13T00:00:00.000Z","2020-09-20T00:00:00.000Z","2020-09-27T00:00:00.000Z","2020-10-04T00:00:00.000Z","2020-10-11T00:00:00.000Z","2020-10-18T00:00:00.000Z","2020-10-25T00:00:00.000Z","2020-11-01T00:00:00.000Z","2020-11-08T00:00:00.000Z","2020-11-15T00:00:00.000Z","2020-11-22T00:00:00.000Z","2020-11-29T00:00:00.000Z","2020-12-06T00:00:00.000Z","2020-12-13T00:00:00.000Z","2020-12-20T00:00:00.000Z","2020-12-27T00:00:00.000Z"],
         vec!["2021-01-03T00:00:00.000Z","2021-01-10T00:00:00.000Z","2021-01-17T00:00:00.000Z","2021-01-24T00:00:00.000Z","2021-01-31T00:00:00.000Z","2021-02-07T00:00:00.000Z","2021-02-14T00:00:00.000Z","2021-02-21T00:00:00.000Z","2021-02-28T00:00:00.000Z","2021-03-07T00:00:00.000Z","2021-03-14T00:00:00.000Z","2021-03-21T00:00:00.000Z","2021-03-28T00:00:00.000Z","2021-04-04T00:00:00.000Z","2021-04-11T00:00:00.000Z","2021-04-18T00:00:00.000Z","2021-04-25T00:00:00.000Z","2021-05-02T00:00:00.000Z","2021-05-09T00:00:00.000Z","2021-05-16T00:00:00.000Z","2021-05-23T00:00:00.000Z","2021-05-30T00:00:00.000Z","2021-06-06T00:00:00.000Z","2021-06-13T00:00:00.000Z","2021-06-20T00:00:00.000Z","2021-06-27T00:00:00.000Z","2021-07-04T00:00:00.000Z","2021-07-11T00:00:00.000Z","2021-07-18T00:00:00.000Z","2021-07-25T00:00:00.000Z","2021-08-01T00:00:00.000Z","2021-08-08T00:00:00.000Z","2021-08-15T00:00:00.000Z","2021-08-22T00:00:00.000Z","2021-08-29T00:00:00.000Z","2021-09-05T00:00:00.000Z","2021-09-12T00:00:00.000Z","2021-09-19T00:00:00.000Z","2021-09-26T00:00:00.000Z","2021-10-03T00:00:00.000Z","2021-10-10T00:00:00.000Z","2021-10-17T00:00:00.000Z","2021-10-24T00:00:00.000Z","2021-10-31T00:00:00.000Z","2021-11-07T00:00:00.000Z","2021-11-14T00:00:00.000Z","2021-11-21T00:00:00.000Z","2021-11-28T00:00:00.000Z","2021-12-05T00:00:00.000Z","2021-12-12T00:00:00.000Z","2021-12-19T00:00:00.000Z","2021-12-26T00:00:00.000Z"],
         vec!["2022-01-02T00:00:00.000Z","2022-01-09T00:00:00.000Z","2022-01-16T00:00:00.000Z","2022-01-23T00:00:00.000Z","2022-01-30T00:00:00.000Z","2022-02-06T00:00:00.000Z","2022-02-13T00:00:00.000Z","2022-02-20T00:00:00.000Z","2022-02-27T00:00:00.000Z","2022-03-06T00:00:00.000Z","2022-03-13T00:00:00.000Z","2022-03-20T00:00:00.000Z","2022-03-27T00:00:00.000Z","2022-04-03T00:00:00.000Z","2022-04-10T00:00:00.000Z","2022-04-17T00:00:00.000Z","2022-04-24T00:00:00.000Z","2022-05-01T00:00:00.000Z","2022-05-08T00:00:00.000Z","2022-05-15T00:00:00.000Z","2022-05-22T00:00:00.000Z","2022-05-29T00:00:00.000Z","2022-06-05T00:00:00.000Z","2022-06-12T00:00:00.000Z","2022-06-19T00:00:00.000Z","2022-06-26T00:00:00.000Z","2022-07-03T00:00:00.000Z","2022-07-10T00:00:00.000Z","2022-07-17T00:00:00.000Z","2022-07-24T00:00:00.000Z","2022-07-31T00:00:00.000Z"]
-    ];    
+    ];
+
+    let outfiles = vec![
+        "/tmp/ccmp_means_1993.nc",
+        "/tmp/ccmp_means_1994.nc",
+        "/tmp/ccmp_means_1995.nc",
+        "/tmp/ccmp_means_1996.nc",
+        "/tmp/ccmp_means_1997.nc",
+        "/tmp/ccmp_means_1998.nc",
+        "/tmp/ccmp_means_1999.nc",
+        "/tmp/ccmp_means_2000.nc",
+        "/tmp/ccmp_means_2001.nc",
+        "/tmp/ccmp_means_2002.nc",
+        "/tmp/ccmp_means_2003.nc",
+        "/tmp/ccmp_means_2004.nc",
+        "/tmp/ccmp_means_2005.nc",
+        "/tmp/ccmp_means_2006.nc",
+        "/tmp/ccmp_means_2007.nc",
+        "/tmp/ccmp_means_2008.nc",
+        "/tmp/ccmp_means_2009.nc",
+        "/tmp/ccmp_means_2010.nc",
+        "/tmp/ccmp_means_2011.nc",
+        "/tmp/ccmp_means_2012.nc",
+        "/tmp/ccmp_means_2013.nc",
+        "/tmp/ccmp_means_2014.nc",
+        "/tmp/ccmp_means_2015.nc",
+        "/tmp/ccmp_means_2016.nc",
+        "/tmp/ccmp_means_2017.nc",
+        "/tmp/ccmp_means_2018.nc",
+        "/tmp/ccmp_means_2019.nc",
+        "/tmp/ccmp_means_2020.nc"
+    ];
 
     let timelattice = &timeseries[(year-1993) as usize];
-    // let outfiles = ["data/sla_adt_mean_1993.nc","data/sla_adt_mean_1994.nc","data/sla_adt_mean_1995.nc","data/sla_adt_mean_1996.nc","data/sla_adt_mean_1997.nc","data/sla_adt_mean_1998.nc","data/sla_adt_mean_1999.nc","data/sla_adt_mean_2000.nc","data/sla_adt_mean_2001.nc","data/sla_adt_mean_2002.nc","data/sla_adt_mean_2003.nc","data/sla_adt_mean_2004.nc","data/sla_adt_mean_2005.nc","data/sla_adt_mean_2006.nc","data/sla_adt_mean_2007.nc","data/sla_adt_mean_2008.nc","data/sla_adt_mean_2009.nc","data/sla_adt_mean_2010.nc","data/sla_adt_mean_2011.nc","data/sla_adt_mean_2012.nc","data/sla_adt_mean_2013.nc","data/sla_adt_mean_2014.nc","data/sla_adt_mean_2015.nc","data/sla_adt_mean_2016.nc","data/sla_adt_mean_2017.nc","data/sla_adt_mean_2018.nc","data/sla_adt_mean_2019.nc","data/sla_adt_mean_2020.nc","data/sla_adt_mean_2021.nc","data/sla_adt_mean_2022.nc"];
+    
+    // caluclate intervals in days since 1993-01-01 for all timesteps
+    let mut timesteps = Vec::new();
+    let epoch = DateTime::parse_from_rfc3339("1993-01-01T00:00:00Z").unwrap();
+    for _i in 0..timelattice.len() {
+        let dt = DateTime::parse_from_rfc3339(timelattice[_i]).unwrap();
+        timesteps.push(dt.signed_duration_since(epoch).num_days());
+    }
 
-    // // caluclate intervals in days since 1993-01-01 for all timesteps
-    // let mut timesteps = Vec::new();
-    // let epoch = DateTime::parse_from_rfc3339("1993-01-01T00:00:00Z").unwrap();
-    // for _i in 0..timelattice.len() {
-    //     let dt = DateTime::parse_from_rfc3339(timelattice[_i]).unwrap();
-    //     timesteps.push(dt.signed_duration_since(epoch).num_days());
-    // }
-
-    // // set up a new netcdf file to hold this period's averages
-    // let mut outfile = netcdf::create(outfiles[iter])?;
-    // outfile.add_dimension("latitude", 720)?;
-    // outfile.add_dimension("longitude", 1440)?;
-    // outfile.add_dimension("time", timelattice.len())?;
+    // set up a new netcdf file to hold this period's averages
+    let mut outfile = netcdf::create(outfiles[(year-1993) as usize])?;
+    outfile.add_dimension("latitude", 720)?;
+    outfile.add_dimension("longitude", 1440)?;
+    outfile.add_dimension("time", timelattice.len())?;
 
     let mut timeidx = 0;
 
@@ -201,99 +232,188 @@ fn main() -> Result<(),netcdf::error::Error> {
                             count_uwnd[timeidx][lat][lon] += 1;
                         }
 
-                        // repeat for other 4 variables
+                        let vwnd = vwnd_map.value::<f64, _>([lat, lon, ts])?;
+                        if !vwnd.is_nan() {
+                            if mean_vwnd[timeidx][lat][lon] == -999.9 {
+                                // drop the fill value and start counting real values
+                                mean_vwnd[timeidx][lat][lon] = 0.0;
+                            }
+                            mean_vwnd[timeidx][lat][lon] += vwnd as f64;
+                            count_vwnd[timeidx][lat][lon] += 1;
+                        }
+
+                        let ws = ws_map.value::<f64, _>([lat, lon, ts])?;
+                        if !ws.is_nan() {
+                            if mean_ws[timeidx][lat][lon] == -999.9 {
+                                // drop the fill value and start counting real values
+                                mean_ws[timeidx][lat][lon] = 0.0;
+                            }
+                            mean_ws[timeidx][lat][lon] += ws as f64;
+                            count_ws[timeidx][lat][lon] += 1;
+                        }
+
+                        let nobs = nobs_map.value::<f64, _>([lat, lon, ts])?;
+                        if !nobs.is_nan() {
+                            if mean_nobs[timeidx][lat][lon] == -999.9 {
+                                // drop the fill value and start counting real values
+                                mean_nobs[timeidx][lat][lon] = 0.0;
+                            }
+                            mean_nobs[timeidx][lat][lon] += nobs as f64;
+                            count_nobs[timeidx][lat][lon] += 1;
+                        }
                     }
                 }
             }
         }
 
         timeidx += 1;
-
-        println!("{:#?}", mean_uwnd);
     }
 
-    // // anomaly means
-    // let mut meansla = outfile.add_variable::<f64>("sla",&["time", "latitude", "longitude"])?;
-    // for time in 0..timeidx{
-    //     for lat in 0..720 {
-    //         let mut msla = Vec::new();
-    //         for lon in 0..1440 {
-    //             if meanSLAs[time][lat][lon] != -999.9 {
-    //                 msla.push(meanSLAs[time][lat][lon] / (slaCount[time][lat][lon] as f64));
-    //             } else {
-    //                 msla.push(meanSLAs[time][lat][lon]);
-    //             }
-    //         }
-    //         // write to file
-    //         meansla.put_values(&msla, (time, lat, ..));
-    //     }
-    // }
+    // uwnd means
+    let mut mean_uwnd_out = outfile.add_variable::<f64>("uwnd",&["time", "latitude", "longitude"])?;
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut muwnd = Vec::new();
+            for lon in 0..1440 {
+                if mean_uwnd[time][lat][lon] != -999.9 {
+                    muwnd.push(mean_uwnd[time][lat][lon] / (count_uwnd[time][lat][lon] as f64));
+                } else {
+                    muwnd.push(mean_uwnd[time][lat][lon]);
+                }
+            }
+            // write to file
+            mean_uwnd_out.put_values(&muwnd, (time, lat, ..));
+        }
+    }
 
-    // // anomaly counts
-    // let mut anomaly_nobs = outfile.add_variable::<f64>("anomaly_nobs",&["time", "latitude", "longitude"])?;  // track how many non-fill-value observations the mean is calculated over
-    // for time in 0..timeidx{
-    //     for lat in 0..720 {
-    //         let mut nobsx = Vec::new();
-    //         for lon in 0..1440 {
-    //             nobsx.push( slaCount[time][lat][lon]);
-    //         }
-    //         // write to file
-    //         anomaly_nobs.put_values(&nobsx, (time, lat, ..));
-    //     }
-    // }
+    // vwnd means
+    let mut mean_vwnd_out = outfile.add_variable::<f64>("vwnd",&["time", "latitude", "longitude"])?;
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut mvwnd = Vec::new();
+            for lon in 0..1440 {
+                if mean_vwnd[time][lat][lon] != -999.9 {
+                    mvwnd.push(mean_vwnd[time][lat][lon] / (count_vwnd[time][lat][lon] as f64));
+                } else {
+                    mvwnd.push(mean_vwnd[time][lat][lon]);
+                }
+            }
+            // write to file
+            mean_vwnd_out.put_values(&mvwnd, (time, lat, ..));
+        }
+    }
 
-    // // absolute means
-    // let mut meanadt = outfile.add_variable::<f64>("adt",&["time", "latitude", "longitude"])?;
-    // for time in 0..timeidx{
-    //     for lat in 0..720 {
-    //         let mut madt = Vec::new();
-    //         for lon in 0..1440 {
-    //             if meanADTs[time][lat][lon] != -999.9 {
-    //                 madt.push(meanADTs[time][lat][lon] / (adtCount[time][lat][lon] as f64));
-    //             } else {
-    //                 madt.push(meanADTs[time][lat][lon]);
-    //             }
-    //         }
-    //         // write to file
-    //         meanadt.put_values(&madt, (time, lat, ..));
-    //     }
-    // }
+    // ws means
+    let mut mean_ws_out = outfile.add_variable::<f64>("ws",&["time", "latitude", "longitude"])?;
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut mws = Vec::new();
+            for lon in 0..1440 {
+                if mean_ws[time][lat][lon] != -999.9 {
+                    mws.push(mean_ws[time][lat][lon] / (count_ws[time][lat][lon] as f64));
+                } else {
+                    mws.push(mean_ws[time][lat][lon]);
+                }
+            }
+            // write to file
+            mean_ws_out.put_values(&mws, (time, lat, ..));
+        }
+    }
 
-    // // absolute counts
-    // let mut abs_nobs = outfile.add_variable::<f64>("abs_nobs",&["time", "latitude", "longitude"])?;  // track how many non-fill-value observations the mean is calculated over
-    // for time in 0..timeidx{
-    //     for lat in 0..720 {
-    //         let mut nobsx = Vec::new();
-    //         for lon in 0..1440 {
-    //             nobsx.push( adtCount[time][lat][lon]);
-    //         }
-    //         // write to file
-    //         abs_nobs.put_values(&nobsx, (time, lat, ..));
-    //     }
-    // }
+    // nobs means
+    let mut mean_nobs_out = outfile.add_variable::<f64>("nobs",&["time", "latitude", "longitude"])?;
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut mnobs = Vec::new();
+            for lon in 0..1440 {
+                if mean_nobs[time][lat][lon] != -999.9 {
+                    mnobs.push(mean_nobs[time][lat][lon] / (count_nobs[time][lat][lon] as f64));
+                } else {
+                    mnobs.push(mean_nobs[time][lat][lon]);
+                }
+            }
+            // write to file
+            mean_nobs_out.put_values(&mnobs, (time, lat, ..));
+        }
+    }
 
-    // // propagate dimensions
-    // let dates = timewindow(timelattice[0], 3);
-    // /// latitude
-    // let f = netcdf::open(format!("data/dt_global_twosat_phy_l4_{}_vDT2021.nc", dates[3]))?;
-    // let latitudes = &f.variable("latitude").expect("Could not find variable 'latitude'");
-    // let mut lats = Vec::new();
-    // for lat in 0..720 {
-    //     lats.push(latitudes.value::<f64, _>([lat])?);
-    // }
-    // let mut latvals = outfile.add_variable::<f64>("latitude",&["latitude"])?;
-    // latvals.put_values(&lats, (0));
-    // /// longitudes
-    // let longitudes = &f.variable("longitude").expect("Could not find variable 'longitude'");
-    // let mut lons = Vec::new();
-    // for lon in 0..1440 {
-    //     lons.push(longitudes.value::<f64, _>([lon])?);
-    // }
-    // let mut lonvals = outfile.add_variable::<f64>("longitude",&["longitude"])?;
-    // lonvals.put_values(&lons, (0));
-    // /// timestamps
-    // let mut timestamps = outfile.add_variable::<i64>("timestamps",&["time"])?;
-    // timestamps.put_values(&timesteps, (0));
+    // uwnd counts
+    let mut uwnd_nobs = outfile.add_variable::<f64>("uwnd_nobs",&["time", "latitude", "longitude"])?;  // track how many non-fill-value observations the mean is calculated over
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut uwnd_nobsx = Vec::new();
+            for lon in 0..1440 {
+                uwnd_nobsx.push( count_uwnd[time][lat][lon]);
+            }
+            // write to file
+            uwnd_nobs.put_values(&uwnd_nobsx, (time, lat, ..));
+        }
+    }
+
+    // vwnd counts
+    let mut vwnd_nobs = outfile.add_variable::<f64>("vwnd_nobs",&["time", "latitude", "longitude"])?;  // track how many non-fill-value observations the mean is calculated over
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut vwnd_nobsx = Vec::new();
+            for lon in 0..1440 {
+                vwnd_nobsx.push( count_vwnd[time][lat][lon]);
+            }
+            // write to file
+            vwnd_nobs.put_values(&vwnd_nobsx, (time, lat, ..));
+        }
+    }
+
+    // ws counts
+    let mut ws_nobs = outfile.add_variable::<f64>("ws_nobs",&["time", "latitude", "longitude"])?;  // track how many non-fill-value observations the mean is calculated over
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut ws_nobsx = Vec::new();
+            for lon in 0..1440 {
+                ws_nobsx.push( count_ws[time][lat][lon]);
+            }
+            // write to file
+            ws_nobs.put_values(&ws_nobsx, (time, lat, ..));
+        }
+    }
+
+    // nobs counts
+    let mut nobs_nobs = outfile.add_variable::<f64>("nobs_nobs",&["time", "latitude", "longitude"])?;  // track how many non-fill-value observations the mean is calculated over
+    for time in 0..timeidx{
+        for lat in 0..720 {
+            let mut nobs_nobsx = Vec::new();
+            for lon in 0..1440 {
+                nobs_nobsx.push( count_nobs[time][lat][lon]);
+            }
+            // write to file
+            nobs_nobs.put_values(&nobs_nobsx, (time, lat, ..));
+        }
+    }
+
+    // propagate dimensions
+    let dates = timewindow(timelattice[0], 3);
+    let f = netcdf::open(choosefile(&dates[0]))?;
+    
+    /// latitude
+    let latitudes = &f.variable("latitude").expect("Could not find variable 'latitude'");
+    let mut lats = Vec::new();
+    for lat in 0..720 {
+        lats.push(latitudes.value::<f64, _>([lat])?);
+    }
+    let mut latvals = outfile.add_variable::<f64>("latitude",&["latitude"])?;
+    latvals.put_values(&lats, (0));
+    
+    /// longitudes
+    let longitudes = &f.variable("longitude").expect("Could not find variable 'longitude'");
+    let mut lons = Vec::new();
+    for lon in 0..1440 {
+        lons.push(longitudes.value::<f64, _>([lon])?);
+    }
+    let mut lonvals = outfile.add_variable::<f64>("longitude",&["longitude"])?;
+    lonvals.put_values(&lons, (0));
+    
+    /// timestamps
+    let mut timestamps = outfile.add_variable::<i64>("timestamps",&["time"])?;
+    timestamps.put_values(&timesteps, (0));
 
     Ok(())
 }

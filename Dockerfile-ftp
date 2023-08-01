@@ -5,4 +5,5 @@ RUN apt-get install -y nano netcdf-bin
 RUN pip install xarray pymongo netCDF4 pyftpdlib
 
 WORKDIR /app
-COPY download-year.py download-year.py
+COPY download-month.py download-month.py
+COPY download-day.py download-day.py
