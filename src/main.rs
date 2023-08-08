@@ -181,7 +181,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
             let uwnd_nobs = &file.variable("uwnd_nobs").expect("Could not find variable 'uwnd_nobs'");
             let vwnd_nobs = &file.variable("vwnd_nobs").expect("Could not find variable 'vwnd_nobs'");
             let ws_nobs   = &file.variable("ws_nobs").expect("Could not find variable 'ws_nobs'");
-            let nobs_nobs = &file.variable("nobs_nobs").expect("Could not find variable 'nobs_nobs'");
             let timestamps = &file.variable("timestamps").expect("Could not find variable 'timestamps'");
 
             for lonidx in 0..1440 {
@@ -210,9 +209,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
                         meanwsbatch[lonidx].push(NAN);
                     }
 
-                    let nobs_v = nobs.value::<i64, _>([timeidx, latidx, lonidx])?;
-                    let nobs_n = nobs_nobs.value::<i64, _>([timeidx, latidx, lonidx])?;
-                    if nobs_v != -999.9 && nobs_n == 28 { // ie mask out means that didnt have all 28 6h periods available
+                    let nobs_v = nobs.value::<f64, _>([timeidx, latidx, lonidx])?;
+                    if nobs_v != -999.9 { // ie mask out means that didnt have all 28 6h periods available
                         meannobsbatch[lonidx].push(nobs_v);
                     } else {
                         meannobsbatch[lonidx].push(NAN);
