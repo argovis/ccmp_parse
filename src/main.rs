@@ -91,8 +91,9 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let client = Client::with_options(options)?; 
 
     // collection objects
-    let ccmp = client.database("argo").collection("ccmp");
-    let ccmp_meta = client.database("argo").collection("ccmpMeta");
+    let ccmp = client.database("argo").collection("ccmpwind");
+    let ccmp_meta = client.database("argo").collection("timeseriesMeta");
+    let summaries = client.database("argo").collection("summaries");
 
     // Rust structs to serialize time properly
     #[derive(Serialize, Deserialize, Debug)]
@@ -109,6 +110,16 @@ async fn main() -> Result<(), Box<dyn Error>> {
         date_updated_argovis: DateTime,
         timeseries: Vec<DateTime>,
         source: Vec<Sourcedoc>
+    }
+
+    #[derive(Serialize, Deserialize, Debug)]
+    struct summaryDoc {
+        _id: String,
+        data: Vec<String>,
+        longitude_grid_spacing_degrees: f64,
+        latitude_grid_spacing_degrees: f64,
+        longitude_center: f64,
+        latitude_center: f64
     }
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -128,7 +139,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     }
 
     let metadata = CcmpMetadoc{
-        _id: String::from("ccmp"),
+        _id: String::from("ccmpwind"),
         data_type: String::from("wind vector"),
         data_info: (
             vec!(String::from("uwnd"),String::from("vwnd"),String::from("ws"),String::from("nobs")),
@@ -150,8 +161,19 @@ async fn main() -> Result<(), Box<dyn Error>> {
         )
     };
     let metadata_doc = bson::to_document(&metadata).unwrap();
-
     ccmp_meta.insert_one(metadata_doc.clone(), None).await?;
+
+    // construct summary doc
+    let summary = summaryDoc {
+        _id: String::from("ccmpwindsummary"),
+        data: vec!(String::from("uwnd"),String::from("vwnd"),String::from("ws"),String::from("nobs")),
+        longitude_grid_spacing_degrees: 0.25,
+        latitude_grid_spacing_degrees: 0.25,
+        longitude_center: 0.125,
+        latitude_center: 0.125
+    };
+    let summary_doc = bson::to_document(&summary).unwrap();
+    summaries.insert_one(summary_doc.clone(), None).await?;
 
     // data doc: start by building matrix of measurement values for a single latitude and all the longitudes:
 
@@ -280,7 +302,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
             let id = [lon.to_string(), lat.to_string()].join("_");
             let data = doc!{
                 "_id": id,
-                "metadata": ["ccmp"],
+                "metadata": ["ccmpwind"],
                 "basin": basin,
                 "geolocation": {
                     "type": "Point",
