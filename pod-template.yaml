@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ccmp-download-YYYY-MM
+  labels:
+    tier: api
+spec:
+  volumes:
+    - name: ccmp
+      persistentVolumeClaim:
+        claimName: ccmp
+  containers:
+  - name: ccmp
+    imagePullPolicy: Always
+    image: argovis/ccmp:download
+    env:
+    - name: FTPUSER
+      value: xxx
+    - name: FTPPASS
+      value: xxx
+    #command: ['sleep', '100000000']
+    command: ['python', 'download-month.py', 'YYYY', 'mMM']
+    volumeMounts:
+      - mountPath: "/tmp"
+        name: ccmp
+    resources:
+      requests:
+        memory: "0Gi"
+        cpu: "0m"
+      limits:
+        memory: 50Mi
+        cpu: 50m
+  restartPolicy: Never

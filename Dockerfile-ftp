@@ -1,0 +1,9 @@
+FROM python:3.11
+
+RUN apt-get update -y
+RUN apt-get install -y nano netcdf-bin
+RUN pip install xarray pymongo netCDF4 pyftpdlib
+
+WORKDIR /app
+COPY download-month.py download-month.py
+COPY download-day.py download-day.py

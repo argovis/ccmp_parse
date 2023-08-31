@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ccmp-proofread
+spec:
+  volumes:
+    - name: ccmp
+      persistentVolumeClaim:
+        claimName: ccmp
+  containers:
+  - name: ccmp
+    imagePullPolicy: Always
+    image: argovis/ccmp:reduce-proofread
+    #command: ['sleep', '100000000']
+    command: ['python', '-u', 'proofread.py', '1993']
+    volumeMounts:
+      - mountPath: "/tmp"
+        name: ccmp
+    resources:
+      requests:
+        memory: "0Gi"
+        cpu: "0m"
+      limits:
+        memory: 5400Mi
+        cpu: 1350m
+  restartPolicy: Never
