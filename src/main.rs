@@ -100,6 +100,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     struct Sourcedoc {
         source: Vec<String>,
         url: String
+        version: String
     }
 
     #[derive(Serialize, Deserialize, Debug)]
@@ -156,7 +157,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
         source: vec!(
             Sourcedoc{
                 source: vec!(String::from("REMSS CCMP wind vector analysis product")),
-                url: String::from("https://www.remss.com/measurements/ccmp/")
+                url: String::from("https://www.remss.com/measurements/ccmp/"),
+                version: String::from("CCMP 3.0")
             }
         )
     };
