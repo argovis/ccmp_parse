@@ -149,7 +149,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
                 vec!(String::from("m s-1"), String::from("u-wind vector component at 10 meters, averaged weekly")),
                 vec!(String::from("m s-1"), String::from("v-wind vector component at 10 meters, averaged weekly")),
                 vec!(String::from("m s-1"), String::from("wind speed at 10 meters, averaged weekly")),
-                vec!(String::from(""), String::from("number of observations used to derive wind vector components, averaged weekly"))
+                vec!(String::from(""), String::from("number of observations used to derive wind vector components, weekly sum"))
             )
         ),
         date_updated_argovis: bson::DateTime::parse_rfc3339_str(nowstring()).unwrap(),
