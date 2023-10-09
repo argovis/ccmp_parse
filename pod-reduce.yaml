@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ccmp-reduce-1993
+  name: ccmp-reduce-2017
 spec:
   volumes:
     - name: ccmp
@@ -12,7 +12,7 @@ spec:
     imagePullPolicy: Always
     image: argovis/ccmp:reduce
     #command: ['sleep', '100000000']
-    command: ['cargo', 'run', '1993']
+    command: ['cargo', 'run', '2017']
     volumeMounts:
       - mountPath: "/tmp"
         name: ccmp
@@ -22,5 +22,5 @@ spec:
         cpu: "0m"
       limits:
         memory: 5400Mi
-        cpu: 1350m
+        cpu: 1000m
   restartPolicy: Never
