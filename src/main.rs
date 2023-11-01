@@ -76,7 +76,35 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     // fixed coordinates
     
-    let batchfiles = ["/bulk/ccmp/ccmp_means_1993.nc"];
+    let batchfiles = [
+        "/bulk/ccmp/ccmp_means_1993.nc",
+        "/bulk/ccmp/ccmp_means_1994.nc",
+        "/bulk/ccmp/ccmp_means_1995.nc",
+        "/bulk/ccmp/ccmp_means_1996.nc",
+        "/bulk/ccmp/ccmp_means_1997.nc",
+        "/bulk/ccmp/ccmp_means_1998.nc",
+        "/bulk/ccmp/ccmp_means_1999.nc",
+        "/bulk/ccmp/ccmp_means_2000.nc",
+        "/bulk/ccmp/ccmp_means_2001.nc",
+        "/bulk/ccmp/ccmp_means_2002.nc",
+        "/bulk/ccmp/ccmp_means_2003.nc",
+        "/bulk/ccmp/ccmp_means_2004.nc",
+        "/bulk/ccmp/ccmp_means_2005.nc",
+        "/bulk/ccmp/ccmp_means_2006.nc",
+        "/bulk/ccmp/ccmp_means_2007.nc",
+        "/bulk/ccmp/ccmp_means_2008.nc",
+        "/bulk/ccmp/ccmp_means_2009.nc",
+        "/bulk/ccmp/ccmp_means_2010.nc",
+        "/bulk/ccmp/ccmp_means_2011.nc",
+        "/bulk/ccmp/ccmp_means_2012.nc",
+        "/bulk/ccmp/ccmp_means_2013.nc",
+        "/bulk/ccmp/ccmp_means_2014.nc",
+        "/bulk/ccmp/ccmp_means_2015.nc",
+        "/bulk/ccmp/ccmp_means_2016.nc",
+        "/bulk/ccmp/ccmp_means_2017.nc",
+        "/bulk/ccmp/ccmp_means_2018.nc",
+        "/bulk/ccmp/ccmp_means_2019.nc"
+    ];
 
     // mongodb setup ////////////////////////////////////////////////////////////
     // Load the MongoDB connection string from an environment variable:
@@ -99,7 +127,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     #[derive(Serialize, Deserialize, Debug)]
     struct Sourcedoc {
         source: Vec<String>,
-        url: String
+        url: String,
         version: String
     }
 

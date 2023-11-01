@@ -6,9 +6,9 @@ metadata:
     tier: api
 spec:
   volumes:
-    - name: argovis-bulk
+    - name: ccmp
       persistentVolumeClaim:
-        claimName: argovis-bulk
+        claimName: ccmp
   containers:
   - name: ccmp-sync
     imagePullPolicy: Always
@@ -16,16 +16,16 @@ spec:
     env:
     - name: MONGODB_URI
       value: mongodb://database/argo
-    command: ['sleep', '100000000']
-    #command: ['cargo', 'run']
+    #command: ['sleep', '100000000']
+    command: ['cargo', 'run']
     volumeMounts:
-      - mountPath: "/bulk"
-        name: argovis-bulk
+      - mountPath: "/bulk/ccmp"
+        name: ccmp
     resources:
       requests:
         memory: "0Gi"
         cpu: "0m"
       limits:
-        memory: 4500Mi
+        memory: 3000Mi
         cpu: 1000m
   restartPolicy: Never
