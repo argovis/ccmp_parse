@@ -132,13 +132,24 @@ async fn main() -> Result<(), Box<dyn Error>> {
     }
 
     #[derive(Serialize, Deserialize, Debug)]
+    struct Lattice {
+        center: Vec<f64>,
+        spacing: Vec<f64>,
+        minLat: f64,
+        minLon: f64,
+        maxLat: f64,
+        maxLon: f64
+    }
+
+    #[derive(Serialize, Deserialize, Debug)]
     struct CcmpMetadoc {
         _id: String,
         data_type: String,
         data_info: (Vec<String>, Vec<String>, Vec<Vec<String>>),
         date_updated_argovis: DateTime,
         timeseries: Vec<DateTime>,
-        source: Vec<Sourcedoc>
+        source: Vec<Sourcedoc>,
+        lattice: Lattice
     }
 
     #[derive(Serialize, Deserialize, Debug)]
@@ -188,7 +199,15 @@ async fn main() -> Result<(), Box<dyn Error>> {
                 url: String::from("https://www.remss.com/measurements/ccmp/"),
                 version: String::from("CCMP 3.0")
             }
-        )
+        ),
+        lattice: Lattice {
+            "center" : [0.125,0.125],
+            "spacing" : [0.25,0.25],
+            "minLat" : -78.375,
+            "minLon" : -179.875,
+            "maxLat" : 78.375,
+            "maxLon" : 179.875
+        }
     };
     let metadata_doc = bson::to_document(&metadata).unwrap();
     ccmp_meta.insert_one(metadata_doc.clone(), None).await?;
