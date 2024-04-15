@@ -15,9 +15,9 @@ spec:
     image: argovis/ccmp:download
     env:
     - name: FTPUSER
-      value: William.Mills-1@colorado.edu
+      value: xxx
     - name: FTPPASS
-      value: William.Mills-1@colorado.edu
+      value: xxx
     #command: ['sleep', '100000000']
     command: ['python', 'download-month.py', 'YYYY', 'mMM']
     volumeMounts:
