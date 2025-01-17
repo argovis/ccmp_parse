@@ -1,3 +1,4 @@
+
 # CCMP parsing
 
 This branch is for taking upstream CCMP data and reducing it to weekly averages in an intermediate set of netcdf files; see branch `db-population` for writing these weekly averages to mongodb.
@@ -14,6 +15,10 @@ This branch is for taking upstream CCMP data and reducing it to weekly averages 
 
  - weekly averages aligned to match https://psl.noaa.gov/data/gridded/data.noaa.oisst.v2.html
  - build and push image described in `Dockerfile` as `argovis/ccmp:reduce` and run via `pod-reduce.yaml` after choosing the appropriate year. Resource intensive, takes about 14h on openshift.
+
+## Postprocessing
+
+ - after ccmp collections are rebuilt, build and run the image decribed in `Dockerfile-summary` (`db-population` branch) to refresh summary documents.
 
 ## Proofreading
 
